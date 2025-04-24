@@ -22,7 +22,7 @@ function Grades() {
       </div>
 
       {/* Bottom Navigation */}
-      <motion.div 
+      {/* <motion.div 
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         className="fixed bottom-0 left-0 right-0 glass-effect"
@@ -41,7 +41,7 @@ function Grades() {
             <User className="w-6 h-6 bottom-nav-item" />
           </Link>
         </div>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 }
