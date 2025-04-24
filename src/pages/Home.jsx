@@ -57,46 +57,43 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen relative">
-      <div className="absolute inset-0" style={{ 
-        backgroundImage: `url(/src/assets/home.jpg)`, 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center',
+    <div className="relative min-h-screen">
+      <div className="absolute inset-0 bg-cover bg-center" style={{ 
+        backgroundImage: 'url(/src/assets/home.jpg)',
         backgroundAttachment: 'fixed',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
         opacity: 0.8
       }}>
       </div>
-      <div className="relative min-h-screen">
-        <div className="p-6">
-          <UserGreeting 
-            name="Alden"
-            newAssignments={5}
-            avatarUrl="https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&w=150"
-          />
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {menuItems.map((item, index) => (
-              <Link to={item.link} key={item.title} className="block">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`glass-effect rounded-xl p-4 card-hover ${item.className} cursor-pointer hover:scale-105 transition-all duration-200 h-[150px] flex flex-col items-center justify-between`}
-                  style={{ backgroundImage: `url(${item.background})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-                >
-                  <div className="pt-3">
-                    <div className="w-12 h-12 flex items-center justify-center bg-black/50 rounded-full">
-                      <div className="text-white">{item.icon}</div>
-                    </div>
+      <div className="relative container mx-auto px-4 py-8">
+        <UserGreeting 
+          name="Alden"
+          newAssignments={5}
+          avatarUrl="https://images.pexels.com/photos/1542085/pexels-photo-1542085.jpeg?auto=compress&cs=tinysrgb&w=150"
+        />
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+          {menuItems.map((item, index) => (
+            <Link to={item.link} key={item.title} className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`glass-effect rounded-xl p-4 card-hover ${item.className} cursor-pointer hover:scale-105 transition-all duration-200 h-[150px] flex flex-col items-center justify-between`}
+                style={{ backgroundImage: `url(${item.background})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+              >
+                <div className="pt-3">
+                  <div className="w-12 h-12 flex items-center justify-center bg-black/50 rounded-full">
+                    <div className="text-white">{item.icon}</div>
                   </div>
-                  <div className="pb-2 w-full text-center">
-                    <h3 className="text-lg font-semibold mb-1 text-white">{item.title}</h3>
-                    <p className="text-sm text-blue-200 mx-auto max-w-[140px] leading-tight">{item.subtitle}</p>
-                  </div>
-                </motion.div>
-              </Link>
-            ))}
-          </div>
+                </div>
+                <div className="pb-2 w-full text-center">
+                  <h3 className="text-lg font-semibold mb-1 text-white">{item.title}</h3>
+                  <p className="text-sm text-blue-200 mx-auto max-w-[140px] leading-tight">{item.subtitle}</p>
+                </div>
+              </motion.div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
